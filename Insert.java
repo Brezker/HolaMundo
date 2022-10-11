@@ -9,6 +9,7 @@ public class Insert{
       ConexionBD bd = new ConexionBD();
       Connection conn = bd.getConnection();
       Statement sentencia = conn.createStatement();
+      System.out.println("Ingresa mensaje:");
       msg = leer.nextLine();
       sentencia.executeUpdate("INSERT INTO mensaje VALUES(null,'"+msg+"')");
       conn.close();
