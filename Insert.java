@@ -7,7 +7,7 @@ public class Insert{
   public void insertar(){
     try{
       ConexionBD bd = new ConexionBD();
-      ConexionBD conn = bd.getConnection();
+      Connection conn = bd.getConnection();
       Statement sentencia = conn.createStatement();
       msg = leer.nextLine();
       sentencia.executeUpdate("INSERT INTO mensaje VALUES(null, '"+ msg +"')");

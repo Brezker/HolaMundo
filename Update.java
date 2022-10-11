@@ -8,11 +8,11 @@ public class Update{
   public void actualizar(){
     try{
       ConexionBD bd = new ConexionBD();
-      ConexionBD conn = bd.getConnection();
+      Connection conn = bd.getConnection();
       Statement sentencia = conn.createStatement();
-      System.out.print("Nuevo valor: ";
+      System.out.println("Nuevo valor: ");
       msg = leer.nextLine();
-      System.out.print("ID del registro a cambiar");
+      System.out.println("ID del registro a cambiar");
       idr = leer.nextInt();
       sentencia.executeUpdate("UPDATE mensaje SET nom = '"+ msg +"' WHERE id ="+idr);
       conn.close();

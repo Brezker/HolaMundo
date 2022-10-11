@@ -7,9 +7,9 @@ public class Delete{
   public void eliminar(){
     try{
       ConexionBD bd = new ConexionBD();
-      ConexionBD conn = bd.getConnection();
+      Connection conn = bd.getConnection();
       Statement sentencia = conn.createStatement();
-      System.out.print("ID del registro a eliminar");
+      System.out.println("ID del registro a eliminar");
       idr = leer.nextInt();
       sentencia.executeUpdate("DELETE FROM mensaje WHERE id=" + idr);
       conn.close();
