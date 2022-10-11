@@ -12,16 +12,16 @@ public class Hola{
           objS.mostrar();
         break;
         case 2:
-          Select objI = new Select();
-          objS.insertar();
+          Insert objI = new Insert();
+          objI.insertar();
         break;
         case 3:
-          Select objU = new Select();
-          objS.actualizar();
+          Update objU = new Update();
+          objU.actualizar();
         break;
         case 4:
-          Select objD = new Select();
-          objS.eliminar();
+          Delete objD = new Delete();
+          objD.eliminar();
         break;
         default:
           System.out.println("Gracias por tu visita a la fiesta!");
