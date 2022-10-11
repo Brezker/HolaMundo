@@ -14,7 +14,7 @@ public class Update{
       msg = leer.nextLine();
       System.out.println("ID del registro a cambiar");
       idr = leer.nextInt();
-      sentencia.executeUpdate("UPDATE mensaje SET nom = '"+ msg +"' WHERE id ="+idr);
+      sentencia.executeUpdate("UPDATE mensaje SET nom = '"+ msg +"' WHERE id="+idr);
       conn.close();
     } catch(SQLException e){
       System.out.print("Error! "+ e.getMessage());

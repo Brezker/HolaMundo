@@ -10,7 +10,7 @@ public class Insert{
       Connection conn = bd.getConnection();
       Statement sentencia = conn.createStatement();
       msg = leer.nextLine();
-      sentencia.executeUpdate("INSERT INTO mensaje VALUES(null, '"+ msg +"')");
+      sentencia.executeUpdate("INSERT INTO mensaje VALUES(null,'"+msg+"')");
       conn.close();
     } catch(SQLException e){
       System.out.print("Error! "+ e.getMessage());
