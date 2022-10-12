@@ -1,3 +1,5 @@
+package presentacion;
+import negocio.*;
 import java.util.Scanner;
 public class Hola{
   public static void main(String asdf[]) {

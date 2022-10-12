@@ -1,3 +1,5 @@
+package negocio;
+import datos.ConexionBD;
 import java.sql.*;
 import java.util.Scanner;
 

@@ -1,3 +1,4 @@
+package datos;
 // import java.util.Scanner;
 import java.sql.*;
 public class ConexionBD {
