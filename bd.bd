@@ -1,5 +1,5 @@
 CREATE DATABASE saludos;
-use saludos
+use saludos;
 CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL);
 INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao');
 
