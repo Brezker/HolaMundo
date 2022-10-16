@@ -3,9 +3,11 @@ import negocio.*;
 import java.util.Scanner;
 public class Hola{
   public static void main(String asdf[]) {
+    /* Createbd objCr = new Createbd(); */
+    /* objCr.creadb(); */
     Scanner leer = new Scanner(System.in);
     int dato;
-    do{
+    for(;;){
       System.out.println("\n--Menu--\n1. Select\n2. Insert\n3. Update\n4. Delete\n5. Salir\n");
       dato = leer.nextInt();
       switch(dato){
@@ -27,8 +29,9 @@ public class Hola{
         break;
         default:
           System.out.println("Gracias por tu visita a la fiesta!");
+          System.exit(0);
       }
-    }while(dato!=5);
+    }
     /* System.out.println("Mostrar el Hola Mundo"); */
     /* Select obj = new Select(); */
     /* obj.mostrar(); */

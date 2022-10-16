@@ -8,10 +8,11 @@ public class ConexionBD {
     boolean exist = false;
     try {
       
-      String url = "jdbc:mysql://localhost:3306/saludos";
+      String url = "jdbc:mysql://localhost:3306/";
+      String url2 = "jdbc:mysql://localhost:3306/saludos";
       String user = "root", password = "root";
       try {
-        conn = DriverManager.getConnection(url,user,password);
+        conn = DriverManager.getConnection(url2,user,password);
       } catch (SQLException e) {
         System.out.print("Error! " + e.getMessage());
       }
@@ -23,10 +24,17 @@ public class ConexionBD {
 
       if (rs.next()) {
         //JOptionPane.showMessageDialog(main, "La base de datos existe.");
+        System.out.println("Existe la BD");
+        try {
+          conn = DriverManager.getConnection(url2,user,password);
+        } catch (SQLException e) {
+          System.out.print("Error! " + e.getMessage());
+        }
         exist = true;
       }
     } catch (SQLException ex) {
       //JOptionPane.showMessageDialog(main, "La base de datos no existe.");
+      System.out.println("No existe la BD");
       exist = false;
     }
 	
@@ -40,7 +48,7 @@ public class ConexionBD {
 		  sentencia.executeUpdate("CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL)");
 		  sentencia.executeUpdate("INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao')");
 		  
-		  conn.close();
+		  /* conn.close(); */
 		} catch(SQLException e){
 		  System.out.print("Error! "+ e.getMessage());
 		}
