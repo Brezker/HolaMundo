@@ -12,7 +12,7 @@ public class ConexionBD {
       String url2 = "jdbc:mysql://localhost:3306/saludos";
       String user = "root", password = "root";
       try {
-        conn = DriverManager.getConnection(url2,user,password);
+        conn = DriverManager.getConnection(url,user,password);
       } catch (SQLException e) {
         System.out.print("Error! " + e.getMessage());
       }
@@ -24,7 +24,7 @@ public class ConexionBD {
 
       if (rs.next()) {
         //JOptionPane.showMessageDialog(main, "La base de datos existe.");
-        System.out.println("Existe la BD");
+        //System.out.println("Existe la BD");
         try {
           conn = DriverManager.getConnection(url2,user,password);
         } catch (SQLException e) {
