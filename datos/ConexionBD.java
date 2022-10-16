@@ -28,33 +28,39 @@ public class ConexionBD {
         try {
           conn = DriverManager.getConnection(url2,user,password);
         } catch (SQLException e) {
+          System.out.println("No existe la BD");
+          st.executeQuery("CREATE DATABASE saludos");
+          System.out.println("BD creada");
+          exist = false;
           System.out.print("Error! " + e.getMessage());
         }
         exist = true;
       }
     } catch (SQLException ex) {
       //JOptionPane.showMessageDialog(main, "La base de datos no existe.");
-      System.out.println("No existe la BD");
-      exist = false;
+      /* System.out.println("No existe la BD"); */
+      /* st.executeQuery("CREATE DATABASE saludos"); */
+      /* System.out.println("BD creada"); */
+      /* exist = false; */
     }
 	
-    if(exist = false){
-		try{
-		  ConexionBD bd = new ConexionBD();
-		  Connection conn = bd.getConnection();
-		  Statement sentencia = conn.createStatement();
-		  sentencia.executeUpdate("CREATE DATABASE saludos");
-		  sentencia.executeUpdate("use saludos");
-		  sentencia.executeUpdate("CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL)");
-		  sentencia.executeUpdate("INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao')");
-		  
-		  /* conn.close(); */
-		} catch(SQLException e){
-		  System.out.print("Error! "+ e.getMessage());
-		}
-    } else {
-      //System.out.println("Existe la BD");
-    }
+  /*   if(exist = false){ */
+		/* try{ */
+		/*   ConexionBD bd = new ConexionBD(); */
+		/*   Connection conn = bd.getConnection(); */
+		/*   Statement sentencia = conn.createStatement(); */
+		/*   sentencia.executeUpdate("CREATE DATABASE saludos"); */
+		/*   sentencia.executeUpdate("use saludos"); */
+		/*   sentencia.executeUpdate("CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL)"); */
+		/*   sentencia.executeUpdate("INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao')"); */
+		/*    */
+		/* conn.close(); */
+		/* } catch(SQLException e){ */
+		/*   System.out.print("Error! "+ e.getMessage()); */
+		/* } */
+  /*   } else { */
+  /*     //System.out.println("Existe la BD"); */
+  /*   } */
 
   }
   public Connection getConnection() {
