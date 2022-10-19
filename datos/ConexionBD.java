@@ -43,7 +43,8 @@ public class ConexionBD {
 	      st.execute("use saludos");
 	      st.execute("CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL)");
 	      st.execute("INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao')");
-
+        System.out.println("Creando...");
+        System.out.println("BD creada ingresando al sistema");
 	      /* objCDB.createdb(); */
         exist = false;
       }
