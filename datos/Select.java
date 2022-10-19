@@ -1,4 +1,4 @@
-package negocio;
+package datos;
 import datos.ConexionBD;
 import java.sql.*;
 public class Select {
