@@ -24,25 +24,31 @@ public class ConexionBD {
 
       if (rs.next()) {
         //JOptionPane.showMessageDialog(main, "La base de datos existe.");
-        //System.out.println("Existe la BD");
+        /* System.out.println("Existe la BD"); */
         try {
           conn = DriverManager.getConnection(url2,user,password);
         } catch (SQLException e) {
           System.out.println("No existe la BD");
-
+          
           /* st.executeQuery("CREATE DATABASE saludos"); */
           System.out.println("BD creada");
           exist = false;
           System.out.print("Errorer! " + e.getMessage());
         }
         exist = true;
+      } else {
+        System.out.println("No existe la BD");
+        /* CreateDB objCDB = new CreateDB(); */
+	      st.execute("CREATE DATABASE saludos");
+	      /* objCDB.createdb(); */
+        exist = false;
       }
     } catch (SQLException ex) {
       //JOptionPane.showMessageDialog(main, "La base de datos no existe.");
       /* System.out.println("No existe la BD"); */
       /* st.executeQuery("CREATE DATABASE saludos"); */
       /* System.out.println("BD creada"); */
-      /* exist = false; */
+      exist = false;
     }
 	
   /*   if(exist = false){ */
@@ -60,7 +66,7 @@ public class ConexionBD {
 		/*   System.out.print("Errores! "+ e.getMessage()); */
 		/* } */
   /*   } else { */
-  /*     //System.out.println("Existe la BD"); */
+  /*     System.out.println("Existe la BD"); */
   /*   } */
 
   }

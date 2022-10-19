@@ -8,7 +8,7 @@ public class CreateDB{
       ConexionBD bd = new ConexionBD();
       Connection conn = bd.getConnection();
       Statement sentencia = conn.createStatement();
-      sentencia.executeUpdate("CREATE DATABASE saludos);
+      sentencia.execute("CREATE DATABASE saludos");
       conn.close();
     } catch(SQLException e){
       System.out.print("Error Creating DB! "+ e.getMessage());
