@@ -40,6 +40,10 @@ public class ConexionBD {
         System.out.println("No existe la BD");
         /* CreateDB objCDB = new CreateDB(); */
 	      st.execute("CREATE DATABASE saludos");
+	      st.execute("use saludos");
+	      st.execute("CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL)");
+	      st.execute("INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao')");
+
 	      /* objCDB.createdb(); */
         exist = false;
       }
