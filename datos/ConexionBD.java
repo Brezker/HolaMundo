@@ -29,7 +29,8 @@ public class ConexionBD {
           conn = DriverManager.getConnection(url2,user,password);
         } catch (SQLException e) {
           System.out.println("No existe la BD");
-          st.executeQuery("CREATE DATABASE saludos");
+
+          /* st.executeQuery("CREATE DATABASE saludos"); */
           System.out.println("BD creada");
           exist = false;
           System.out.print("Errorer! " + e.getMessage());
