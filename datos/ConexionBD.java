@@ -38,11 +38,17 @@ public class ConexionBD {
         exist = true;
       } else {
         System.out.println("No existe la BD");
-        /* CreateDB objCDB = new CreateDB(); */
 	      st.execute("CREATE DATABASE saludos");
 	      st.execute("use saludos");
 	      st.execute("CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL)");
 	      st.execute("INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao')");
+	      
+        st.executeUpdate("CREATE PROCEDURE sp_ins(nm VARCHAR(30)) BEGIN INSERT INTO mensaje VALUES(NULL,nm); END ");
+        st.executeUpdate("CREATE PROCEDURE sp_mos() BEGIN SELECT * FROM mensaje; END ");
+        st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END ");
+        st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END ");
+        st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END ");
+        
         System.out.println("Creando...");
         System.out.println("BD creada ingresando al sistema");
 	      /* objCDB.createdb(); */

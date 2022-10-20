@@ -3,3 +3,10 @@ use saludos;
 CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL);
 INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao');
 
+DELIMITER //
+CREATE PROCEDURE sp_ins(msj VARCHAR(30))
+BEGIN
+INSERT INTO mensaje VALUES(NULL,msj);
+END //
+DELIMITER ;
+
