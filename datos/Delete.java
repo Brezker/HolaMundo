@@ -13,7 +13,8 @@ public class Delete{
       Statement sentencia = conn.createStatement();
       /*System.out.println("ID del registro a eliminar");
       idr = leer.nextInt();*/
-      sentencia.executeUpdate("DELETE FROM mensaje WHERE id=" + idr);
+      /* sentencia.executeUpdate("DELETE FROM mensaje WHERE id=" + idr); */
+      sentencia.executeUpdate("CALL sp_bor("+idr+")");
       conn.close();
     } catch(SQLException e){
       System.out.print("Error! "+ e.getMessage());

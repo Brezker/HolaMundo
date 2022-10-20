@@ -45,9 +45,9 @@ public class ConexionBD {
 	      
         st.executeUpdate("CREATE PROCEDURE sp_ins(nm VARCHAR(30)) BEGIN INSERT INTO mensaje VALUES(NULL,nm); END ");
         st.executeUpdate("CREATE PROCEDURE sp_mos() BEGIN SELECT * FROM mensaje; END ");
-        st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END ");
-        st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END ");
-        st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END ");
+        st.executeUpdate("CREATE PROCEDURE sp_bor(nm INT) BEGIN DELETE FROM mensaje WHERE id=nm; END ");
+        st.executeUpdate("CREATE PROCEDURE sp_act(nm INT, tx VARCHAR(30)) BEGIN UPDATE mensaje SET nom=tx where id=nm; END ");
+        /* st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END "); */
         
         System.out.println("Creando...");
         System.out.println("BD creada ingresando al sistema");
