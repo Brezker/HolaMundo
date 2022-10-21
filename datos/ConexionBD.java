@@ -48,9 +48,13 @@ public class ConexionBD {
         st.executeUpdate("CREATE PROCEDURE sp_bor(nm INT) BEGIN DELETE FROM mensaje WHERE id=nm; END ");
         st.executeUpdate("CREATE PROCEDURE sp_act(nm INT, tx VARCHAR(30)) BEGIN UPDATE mensaje SET nom=tx where id=nm; END ");
         /* st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END "); */
-        st.executeUpdate("CREATE USER jul@localhost IDENTIFIED BY '123'");
-        st.executeUpdate("GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON mensaje.* TO jul@localhost");
-        st.executeUpdate("FLUSH PRIVILEGES");
+        
+        //Create User
+        /* st.executeUpdate("CREATE USER jul@localhost IDENTIFIED BY '123'"); */
+        /* st.executeUpdate("GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON mensaje.* TO jul@localhost"); */
+        /* st.executeUpdate("FLUSH PRIVILEGES"); */
+
+	      /* String user = "jul", password = "123"; */
 
         System.out.println("Creando...");
         System.out.println("BD creada ingresando al sistema");
@@ -60,33 +64,15 @@ public class ConexionBD {
     } catch (SQLException ex) {
       //JOptionPane.showMessageDialog(main, "La base de datos no existe.");
       /* System.out.println("No existe la BD"); */
-      /* st.executeQuery("CREATE DATABASE saludos"); */
-      /* System.out.println("BD creada"); */
+      /*System.out.println("BD creada"); */
       exist = false;
     }
-	
-  /*   if(exist = false){ */
-		/* try{ */
-		/*   ConexionBD bd = new ConexionBD(); */
-		/*   Connection conn = bd.getConnection(); */
-		/*   Statement sentencia = conn.createStatement(); */
-		/*   sentencia.executeUpdate("CREATE DATABASE saludos"); */
-		/*   sentencia.executeUpdate("use saludos"); */
-		/*   sentencia.executeUpdate("CREATE TABLE mensaje(id INT PRIMARY KEY AUTO_INCREMENT, nom VARCHAR(30) NOT NULL)"); */
-		/*   sentencia.executeUpdate("INSERT INTO mensaje VALUES(null, 'Hola mundo'), (null, 'Ni hao')"); */
-		/*    */
-		/* conn.close(); */
-		/* } catch(SQLException e){ */
-		/*   System.out.print("Errores! "+ e.getMessage()); */
-		/* } */
-  /*   } else { */
-  /*     System.out.println("Existe la BD"); */
-  /*   } */
-
   }
+
   public Connection getConnection() {
     return this.conn;
   }
+
   public void desconectarBD() {
     if (conn != null) {
       try {
