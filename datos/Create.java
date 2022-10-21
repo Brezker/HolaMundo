@@ -12,7 +12,8 @@ public class Create{
       ConexionBD bd = new ConexionBD();
       Connection conn = bd.getConnection();
       Statement sentencia = conn.createStatement();
-      /* sentencia.executeUpdate("INSERT INTO mensaje VALUES(null,'"+msg+"')"); */
+      /* sentencia.executeUpdate("DELETE FROM mysql.user WHERE user = "+msg); */
+      /* sentencia.executeUpdate("DROP user "+msg+"@localhost"); */
       sentencia.executeUpdate("CREATE USER "+msg+"@localhost IDENTIFIED BY '123'");
       sentencia.executeUpdate("GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON mensaje.* TO "+msg+"@localhost");
       sentencia.executeUpdate("FLUSH PRIVILEGES");

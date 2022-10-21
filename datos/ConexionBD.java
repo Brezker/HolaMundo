@@ -27,6 +27,24 @@ public class ConexionBD {
         /* System.out.println("Existe la BD"); */
         try {
           conn = DriverManager.getConnection(url2,user,password);
+          try {
+            //Delete users before create
+            /* st.executeUpdate("DROP user julian@localhost"); */
+            /* st.executeUpdate("DROP user julius@localhost"); */
+            /* st.executeUpdate("flush privileges"); */
+            /* st.executeUpdate("DELETE FROM mysql.user WHERE user = 'julian'"); */
+            /* st.executeUpdate("DELETE FROM mysql.user WHERE user = 'julius'"); */
+
+            //Create User
+            st.executeUpdate("CREATE USER julian@localhost IDENTIFIED BY '123'");
+            st.executeUpdate("GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON mensaje.* TO julian@localhost");
+            st.executeUpdate("CREATE USER julius@localhost IDENTIFIED BY '123'");
+            st.executeUpdate("GRANT SELECT, INSERT, EXECUTE ON mensaje.* TO julius@localhost");
+
+            st.executeUpdate("FLUSH PRIVILEGES");
+          } catch (SQLException e) {
+            /* System.out.println("Error creando usuarios! " + e.getMessage()); */
+          }
         } catch (SQLException e) {
           System.out.println("No existe la BD");
           
@@ -50,9 +68,14 @@ public class ConexionBD {
         /* st.executeUpdate("CREATE PROCEDURE sp_() BEGIN ; END "); */
         
         //Create User
-        /* st.executeUpdate("CREATE USER jul@localhost IDENTIFIED BY '123'"); */
-        /* st.executeUpdate("GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON mensaje.* TO jul@localhost"); */
-        /* st.executeUpdate("FLUSH PRIVILEGES"); */
+        st.executeUpdate("CREATE USER julian@localhost IDENTIFIED BY '123'");
+        st.executeUpdate("GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON mensaje.* TO julian@localhost");
+        st.executeUpdate("CREATE USER julius@localhost IDENTIFIED BY '123'");
+        st.executeUpdate("GRANT SELECT, INSERT, EXECUTE ON mensaje.* TO julius@localhost");
+
+        st.executeUpdate("FLUSH PRIVILEGES");
+        
+        // SELECT user FROM mysql.user;
 
 	      /* String user = "jul", password = "123"; */
 
