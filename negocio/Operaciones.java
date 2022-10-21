@@ -40,12 +40,20 @@ public class Operaciones{
     String msg = leer.nextLine();
 	  objC.crear(msg);
   }
+  
+  public void create2(){
+		Create2 objC2 = new Create2();
+		Scanner leer=new Scanner(System.in);
+		System.out.println("Ingresa nombre pal usuario:");
+    String msg = leer.nextLine();
+	  objC2.crear2(msg);
+  }
    
   public void menu(){
 	  Scanner leer = new Scanner(System.in);
     int dato;
     for(;;){
-      System.out.println("\n--Menu--\n1. Select\n2. Insert\n3. Update\n4. Delete\n5. Create BD User\n6. Salir\n");
+      System.out.println("\n--Menu--\n1. Select\n2. Insert\n3. Update\n4. Delete\n5. Create BD User\n6. Create BD User Less privileges \n7. Salir\n");
       dato = leer.nextInt();
       switch(dato){
         case 1:
@@ -68,10 +76,12 @@ public class Operaciones{
 		      delete();
         break;
         case 5:
-          /*Delete objD = new Delete();
-          objD.eliminar();*/
 		      create();
         break;
+        case 6:
+		      create2();
+        break;
+
         default:
           System.out.println("Gracias por tu visita a la fiesta!");
           System.exit(0);
