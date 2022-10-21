@@ -29,9 +29,9 @@ public class ConexionBD {
           conn = DriverManager.getConnection(url2,user,password);
           try {
             //Delete users before create
-            /* st.executeUpdate("DROP user julian@localhost"); */
-            /* st.executeUpdate("DROP user julius@localhost"); */
-            /* st.executeUpdate("flush privileges"); */
+            st.executeUpdate("DROP USER IF EXISTS julian@localhost");
+            st.executeUpdate("DROP USER IF EXISTS julius@localhost");
+            st.executeUpdate("flush privileges");
             /* st.executeUpdate("DELETE FROM mysql.user WHERE user = 'julian'"); */
             /* st.executeUpdate("DELETE FROM mysql.user WHERE user = 'julius'"); */
 
